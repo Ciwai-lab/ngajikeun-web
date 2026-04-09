@@ -10,11 +10,14 @@ collections:
     label: "Program Belajar"
     folder: "content/programs"
     create: true
-    slug: "{{slug}}"
+    extension: "json" # Biar output filenya .json
+    format: "json"
+    slug: "{{title}}"
     fields:
-      - {label: "Nama Program", name: "title", widget: "string"}
-      - {label: "Keterangan Singkat", name: "description", widget: "text"}
-      - {label: "Body Konten", name: "body", widget: "markdown"}
+      - {label: "Judul Program", name: "title", widget: "string"}
+      - {label: "Deskripsi Singkat", name: "description", widget: "text"}
+      - {label: "Harga/Infaq", name: "price", widget: "string", default: "Gratis"}
+      - {label: "Gambar (Optional)", name: "image", widget: "image", required: false}
 
   - name: "trainers"
     label: "Tim Mentor"
