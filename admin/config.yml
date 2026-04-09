@@ -31,3 +31,16 @@ collections:
       - {label: "Gelar/Spesialisasi", name: "specialty", widget: "string"}
       - {label: "Sanad & Pengalaman", name: "bio", widget: "text"}
       - {label: "Foto Profil", name: "image", widget: "image"}
+    
+  - name: "testimonials"
+    label: "Testimoni Santri"
+    folder: "content/testimonials"
+    create: true
+    extension: "json"
+    format: "json"
+    slug: "{{name}}"
+    fields:
+      - {label: "Nama Santri", name: "name", widget: "string"}
+      - {label: "Pekerjaan/Status", name: "status", widget: "string"}
+      - {label: "Isi Testimoni", name: "content", widget: "text"}
+      - {label: "Foto (Optional)", name: "image", widget: "image", required: false}
