@@ -19,12 +19,15 @@ collections:
       - {label: "Harga/Infaq", name: "price", widget: "string", default: "Gratis"}
       - {label: "Gambar (Optional)", name: "image", widget: "image", required: false}
 
-  - name: "trainers"
+  - name: "mentors"
     label: "Tim Mentor"
-    folder: "content/trainers"
+    folder: "content/mentors"
     create: true
-    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    slug: "{{name}}"
     fields:
-      - {label: "Nama & Gelar", name: "title", widget: "string"}
+      - {label: "Nama Lengkap", name: "name", widget: "string"}
+      - {label: "Gelar/Spesialisasi", name: "specialty", widget: "string"}
+      - {label: "Sanad & Pengalaman", name: "bio", widget: "text"}
       - {label: "Foto Profil", name: "image", widget: "image"}
-      - {label: "List Prestasi & Sanad", name: "body", widget: "markdown"}
