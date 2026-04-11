@@ -294,10 +294,14 @@
             const repo = 'Ciwai-lab/ngajikeun-web';
 
             try {
-                // Ganti mentors jadi trainers sesuai struktur tree antum
                 const response = await fetch(`https://api.github.com/repos/${repo}/contents/content/trainers`);
                 const files = await response.json();
-                if (!files || files.message === "Not Found") return;
+
+                if (!files || files.message === "Not Found") {
+                    console.error("Folder 'trainers' tidak ditemukan di repo!");
+                    container.innerHTML = '<p class="text-center col-span-full text-gray-400">Folder konten tidak ditemukan.</p>';
+                    return;
+                }
 
                 container.innerHTML = '';
                 for (const file of files) {
@@ -312,12 +316,15 @@
                            class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-emerald-100 group-hover:border-emerald-500 transition-all duration-300 shadow-md">
                     </div>
                     <h3 class="mt-4 text-lg font-bold text-gray-800">${data.name}</h3>
-                    <p class="text-emerald-600 text-sm font-medium mb-2">${data.specialty || 'Pengajar Al-Qur\'an'}</p>
+                    <p class="text-emerald-600 text-sm font-medium mb-2">${data.specialty || 'Mentor Al-Qur\'an'}</p>
                   </div>
                 `;
                     }
                 }
-            } catch (err) { console.error(err); }
+            } catch (err) {
+                console.error("Gagal sinkron mentor:", err);
+                container.innerHTML = '<p class="text-center col-span-full text-red-400 text-xs">Gagal memuat mentor.</p>';
+            }
         }
 
         // Testimonials
