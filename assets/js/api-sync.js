@@ -267,8 +267,10 @@
             const about = data?.about_details;
 
             if (about) {
-                historyEl.innerHTML = renderSimpleMarkdown(about.history);
-                legalEl.innerText = about.legal || '—';
+                historyEl.innerHTML = typeof marked !== 'undefined'
+                    ? marked.parse(about.history)
+                    : about.history;
+                legalEl.innerText = about.legal || '-';
             }
         } catch (error) {
             console.error('Gagal load detail Tentang Kami:', error);
