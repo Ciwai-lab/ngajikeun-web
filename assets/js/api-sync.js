@@ -208,12 +208,31 @@
         }
     }
 
+    async function syncAbout() {
+        const historyEl = document.getElementById('about-history');
+        const legalEl = document.getElementById('about-legal');
+        if (!historyEl || !legalEl) return;
+
+        try {
+            const data = await loadSiteData();
+            const about = data?.about_details;
+
+            if (about) {
+                historyEl.innerHTML = marked.parse(about.history);
+                legalEl.innerText = about.legal || '—';
+            }
+        } catch (error) {
+            console.error('Gagal load detail Tentang Kami:', error);
+        }
+    }
+
     window.NgajikeunApi = {
         syncPrograms,
         syncMentors,
         syncTestimonials,
         syncArticles,
         syncProducts,
-        syncQuizzes
+        syncQuizzes,
+        syncAbout
     };
 }());
