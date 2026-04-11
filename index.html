@@ -294,14 +294,11 @@
             const repo = 'Ciwai-lab/ngajikeun-web';
 
             try {
-                const response = await fetch(`https://api.github.com/repos/${repo}/contents/content/trainers`);
+                // Balikin lagi ke mentors sesuai struktur tree antum
+                const response = await fetch(`https://api.github.com/repos/${repo}/contents/content/mentors`);
                 const files = await response.json();
 
-                if (!files || files.message === "Not Found") {
-                    console.error("Folder 'trainers' tidak ditemukan di repo!");
-                    container.innerHTML = '<p class="text-center col-span-full text-gray-400">Folder konten tidak ditemukan.</p>';
-                    return;
-                }
+                if (!files || files.message === "Not Found") return;
 
                 container.innerHTML = '';
                 for (const file of files) {
@@ -321,10 +318,7 @@
                 `;
                     }
                 }
-            } catch (err) {
-                console.error("Gagal sinkron mentor:", err);
-                container.innerHTML = '<p class="text-center col-span-full text-red-400 text-xs">Gagal memuat mentor.</p>';
-            }
+            } catch (err) { console.error("Gagal load mentor:", err); }
         }
 
         // Testimonials
