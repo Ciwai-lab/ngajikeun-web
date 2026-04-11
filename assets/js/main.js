@@ -51,6 +51,7 @@
         if (!window.NgajikeunApi) return;
 
         console.log('CiwAI Engine: Starting Synchronization...');
+        window.NgajikeunApi.syncAbout();
         window.NgajikeunApi.syncPrograms();
         window.NgajikeunApi.syncMentors();
         window.NgajikeunApi.syncTestimonials();

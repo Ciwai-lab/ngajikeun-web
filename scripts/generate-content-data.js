@@ -89,6 +89,7 @@ async function readCollection(directory, extensions) {
 async function main() {
     const data = {
         generated_at: new Date().toISOString(),
+        about_details: await readJson(path.join(contentRoot, 'about.json')),
         programs: await readCollection('programs', ['.json']),
         mentors: await readCollection('mentors', ['.json']),
         testimonials: await readCollection('testimonials', ['.json']),

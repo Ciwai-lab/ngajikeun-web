@@ -11,6 +11,43 @@
             .replace(/'/g, '&#39;');
     }
 
+    function safeText(value, fallback = '') {
+        return escapeHtml(value ?? fallback);
+    }
+
+    function safeUrl(value, fallback = '#') {
+        if (!value) return fallback;
+
+        try {
+            const url = new URL(value, window.location.origin);
+            const allowedProtocols = ['http:', 'https:'];
+
+            if (url.origin === window.location.origin) {
+                return escapeHtml(url.pathname + url.search + url.hash);
+            }
+
+            if (allowedProtocols.includes(url.protocol)) {
+                return escapeHtml(url.href);
+            }
+        } catch (error) {
+            return fallback;
+        }
+
+        return fallback;
+    }
+
+    function renderSimpleMarkdown(markdown) {
+        const safeMarkdown = String(markdown ?? '').trim();
+        if (!safeMarkdown) {
+            return '<p>Informasi belum tersedia.</p>';
+        }
+
+        return safeMarkdown
+            .split(/\n\s*\n/)
+            .map((paragraph) => `<p>${escapeHtml(paragraph).replace(/\n/g, '<br>')}</p>`)
+            .join('');
+    }
+
     async function fetchJson(url) {
         const response = await fetch(url, { cache: 'no-store' });
         if (!response.ok) {
@@ -52,14 +89,17 @@
             container.innerHTML = '';
 
             for (const content of programs) {
-                const regLink = content.registration_link || `https://wa.me/6281932692047?text=Assalamu'alaikum%20Admin%20Ngajikeun.id,%20saya%20ingin%20mendaftar%20program%20*${encodeURIComponent(content.title)}*`;
+                const regLink = safeUrl(
+                    content.registration_link || `https://wa.me/6281932692047?text=Assalamu'alaikum%20Admin%20Ngajikeun.id,%20saya%20ingin%20mendaftar%20program%20*${encodeURIComponent(content.title || 'program ini')}*`,
+                    'https://wa.me/6281932692047'
+                );
 
                 container.innerHTML += `
                     <div class="bg-white p-6 rounded-2xl shadow-sm border-t-4 border-t-emerald-500 hover:shadow-lg transition-all duration-300">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">${content.title}</h3>
-                        <p class="text-gray-600 text-sm mb-4">${content.description}</p>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">${safeText(content.title, 'Program')}</h3>
+                        <p class="text-gray-600 text-sm mb-4">${safeText(content.description)}</p>
                         <div class="flex justify-between items-center mt-auto pt-4 border-t">
-                            <span class="text-emerald-600 font-bold">${content.price}</span>
+                            <span class="text-emerald-600 font-bold">${safeText(content.price, 'Gratis')}</span>
                             <a href="${regLink}" target="_blank" class="bg-emerald-500 text-white text-xs px-4 py-2 rounded-full font-bold">Daftar Sekarang</a>
                         </div>
                     </div>`;
@@ -81,14 +121,16 @@
             container.innerHTML = '';
 
             for (const mentor of mentors) {
+                const imageUrl = safeUrl(mentor.image, 'https://via.placeholder.com/150');
+
                 container.innerHTML += `
                     <div class="text-center group">
                         <div class="relative inline-block">
-                            <img src="${mentor.image || 'https://via.placeholder.com/150'}"
+                            <img src="${imageUrl}"
                                 class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-emerald-100 group-hover:border-emerald-500 transition-all duration-300 shadow-md">
                         </div>
-                        <h3 class="mt-4 text-lg font-bold text-gray-800">${mentor.name}</h3>
-                        <p class="text-emerald-600 text-sm font-medium mb-2">${mentor.specialty || 'Mentor Al-Qur\'an'}</p>
+                        <h3 class="mt-4 text-lg font-bold text-gray-800">${safeText(mentor.name, 'Mentor')}</h3>
+                        <p class="text-emerald-600 text-sm font-medium mb-2">${safeText(mentor.specialty, 'Mentor Al-Qur\'an')}</p>
                     </div>
                 `;
             }
@@ -109,15 +151,20 @@
             container.innerHTML = '';
 
             for (const testimonial of testimonials) {
+                const imageUrl = safeUrl(
+                    testimonial.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name || 'Santri')}`,
+                    'https://ui-avatars.com/api/?name=Santri'
+                );
+
                 container.innerHTML += `
                     <div class="bg-white p-8 rounded-2xl shadow-sm border border-emerald-100 italic text-gray-700 relative">
                         <span class="text-6xl text-emerald-200 absolute top-2 left-2 font-serif">“</span>
-                        <p class="relative z-10 mb-6">${testimonial.content}</p>
+                        <p class="relative z-10 mb-6">${safeText(testimonial.content)}</p>
                         <div class="flex items-center gap-4 border-t pt-4">
-                            <img src="${testimonial.image || 'https://ui-avatars.com/api/?name=' + testimonial.name}" class="w-12 h-12 rounded-full border-2 border-emerald-500">
+                            <img src="${imageUrl}" class="w-12 h-12 rounded-full border-2 border-emerald-500">
                             <div>
-                                <h4 class="font-bold text-gray-800 not-italic">${testimonial.name}</h4>
-                                <p class="text-xs text-emerald-600 not-italic">${testimonial.status}</p>
+                                <h4 class="font-bold text-gray-800 not-italic">${safeText(testimonial.name, 'Santri')}</h4>
+                                <p class="text-xs text-emerald-600 not-italic">${safeText(testimonial.status)}</p>
                             </div>
                         </div>
                     </div>
@@ -141,7 +188,7 @@
             container.innerHTML = '';
 
             for (const article of articles) {
-                const safeTitle = escapeHtml(article.title || article.slug || 'Artikel');
+                const safeTitle = safeText(article.title || article.slug || 'Artikel');
                 const articleDate = article.date ? new Date(article.date) : null;
                 const formattedDate = articleDate && !Number.isNaN(articleDate.getTime())
                     ? articleDate.toLocaleDateString('id-ID')
@@ -173,9 +220,9 @@
             for (const product of products) {
                 container.innerHTML += `
                     <div class="bg-emerald-50 p-6 rounded-2xl border border-emerald-100 text-center">
-                        <h3 class="font-bold text-emerald-900">${product.title}</h3>
-                        <p class="text-sm text-emerald-700/70 my-3">${product.description}</p>
-                        <span class="block font-black text-emerald-600 mb-4">${product.price}</span>
+                        <h3 class="font-bold text-emerald-900">${safeText(product.title, 'Produk')}</h3>
+                        <p class="text-sm text-emerald-700/70 my-3">${safeText(product.description)}</p>
+                        <span class="block font-black text-emerald-600 mb-4">${safeText(product.price, 'Gratis')}</span>
                         <button class="bg-white text-emerald-700 text-xs px-4 py-2 rounded-full font-bold shadow-sm">Beli Sekarang</button>
                     </div>`;
             }
@@ -196,11 +243,13 @@
             container.innerHTML = '';
 
             for (const quiz of quizzes) {
+                const quizLink = safeUrl(quiz.link);
+
                 container.innerHTML += `
                     <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-amber-400">
-                        <h3 class="font-bold text-gray-800 mb-2">${quiz.title}</h3>
-                        <p class="text-sm text-gray-500 mb-4">${quiz.description || ''}</p>
-                        <a href="${quiz.link}" target="_blank" class="text-amber-600 text-xs font-black uppercase tracking-widest hover:text-amber-700">Mulai Kuiz ⚡</a>
+                        <h3 class="font-bold text-gray-800 mb-2">${safeText(quiz.title, 'Kuiz')}</h3>
+                        <p class="text-sm text-gray-500 mb-4">${safeText(quiz.description)}</p>
+                        <a href="${quizLink}" target="_blank" class="text-amber-600 text-xs font-black uppercase tracking-widest hover:text-amber-700">Mulai Kuiz ⚡</a>
                     </div>`;
             }
         } catch (error) {
@@ -218,7 +267,7 @@
             const about = data?.about_details;
 
             if (about) {
-                historyEl.innerHTML = marked.parse(about.history);
+                historyEl.innerHTML = renderSimpleMarkdown(about.history);
                 legalEl.innerText = about.legal || '—';
             }
         } catch (error) {
