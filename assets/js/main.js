@@ -58,6 +58,7 @@
         window.NgajikeunApi.syncArticles();
         window.NgajikeunApi.syncProducts();
         window.NgajikeunApi.syncQuizzes();
+        window.NgajikeunApi.syncAbout();
     }
 
     async function initPage() {
