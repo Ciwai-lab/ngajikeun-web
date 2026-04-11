@@ -24,7 +24,7 @@ python3 -m http.server 5500</code></pre>
         if (!src) return;
 
         try {
-            const response = await fetch(src);
+            const response = await fetch(src, { cache: 'no-store' });
             if (!response.ok) {
                 throw new Error(`HTTP ${response.status} while loading ${src}`);
             }

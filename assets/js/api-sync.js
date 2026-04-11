@@ -267,12 +267,15 @@
             const about = data?.about_details;
 
             if (about) {
-                historyEl.innerHTML = typeof marked !== 'undefined'
-                    ? marked.parse(about.history)
-                    : about.history;
-                legalEl.innerText = about.legal || '-';
+                historyEl.innerHTML = renderSimpleMarkdown(about.history);
+                legalEl.innerText = about.legal || '—';
+            } else {
+                historyEl.innerHTML = '<p>Informasi sejarah belum tersedia.</p>';
+                legalEl.innerText = '—';
             }
         } catch (error) {
+            historyEl.innerHTML = '<p>Gagal memuat informasi sejarah.</p>';
+            legalEl.innerText = '—';
             console.error('Gagal load detail Tentang Kami:', error);
         }
     }
