@@ -6,6 +6,17 @@ media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
+  - name: "quizzes"
+    label: "Kuiz Interaktif"
+    folder: "content/quizzes"
+    create: true
+    extension: "json"
+    format: "json"
+    fields:
+      - {label: "Judul Kuiz", name: "title", widget: "string"}
+      - {label: "Link Kuiz", name: "link", widget: "string"}
+      - {label: "Keterangan", name: "description", widget: "text"}
+
   - name: "programs"
     label: "Program Belajar"
     folder: "content/programs"
@@ -18,6 +29,7 @@ collections:
       - {label: "Deskripsi Singkat", name: "description", widget: "text"}
       - {label: "Harga/Infaq", name: "price", widget: "string", default: "Gratis"}
       - {label: "Gambar (Optional)", name: "image", widget: "image", required: false}
+      - {label: "Link G-Form", name: "registration_link", widget: "string", required: false}
 
   - name: "mentors"
     label: "Tim Mentor"
@@ -44,3 +56,31 @@ collections:
       - {label: "Pekerjaan/Status", name: "status", widget: "string"}
       - {label: "Isi Testimoni", name: "content", widget: "text"}
       - {label: "Foto (Optional)", name: "image", widget: "image", required: false}
+
+  - name: "articles"
+    label: "Artikel"
+    folder: "content/articles"
+    create: true
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "products"
+    label: "Produk & E-Book"
+    folder: "content/products"
+    create: true
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Price", name: "price", widget: "string"}
+
+  - name: "about"
+    label: "Tentang Kami (Detail)"
+    files:
+      - file: "content/about.json"
+        label: "Informasi Detail"
+        name: "about_details"
+        fields:
+          - {label: "Sejarah", name: "history", widget: "markdown"}
+          - {label: "Legalitas", name: "legal", widget: "string"}
