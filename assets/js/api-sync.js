@@ -267,7 +267,9 @@
             const about = await res.json();
 
             if (about) {
-                historyEl.innerHTML = renderSimpleMarkdown(about.history);
+                historyEl.innerHTML = about.history
+                    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+                    .replace(/\n/g, '<br>');
                 legalEl.innerText = about.legal || '—';
             } else {
                 historyEl.innerHTML = '<p>Informasi sejarah belum tersedia.</p>';
