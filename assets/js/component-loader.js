@@ -29,7 +29,7 @@ python3 -m http.server 5500</code></pre>
                 throw new Error(`HTTP ${response.status} while loading ${src}`);
             }
 
-            slot.outerHTML = await response.text();
+            slot.innerHTML = await response.text();
         } catch (error) {
             console.error('Gagal load komponen:', src, error);
         }
