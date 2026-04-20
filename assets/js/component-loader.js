@@ -43,6 +43,8 @@ python3 -m http.server 5500</code></pre>
 
         const slots = Array.from(document.querySelectorAll('[data-component-src]'));
         await Promise.all(slots.map(injectComponent));
+
+        document.dispatchEvent(new Event("componentsLoaded"));
     }
 
     window.NgajikeunComponents = {

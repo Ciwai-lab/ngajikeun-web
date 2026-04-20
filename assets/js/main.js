@@ -68,8 +68,12 @@
         setupMobileMenu();
         setupRevealOnScroll();
         setupBackToTopButton();
-        initializeContentSync();
     }
+
+    document.addEventListener("componentsLoaded", () => {
+        console.log("🔥 Components ready, syncing content...");
+        initializeContentSync();
+    });
 
     window.scrollToTop = function scrollToTop() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
