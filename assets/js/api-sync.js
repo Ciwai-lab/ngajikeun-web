@@ -263,8 +263,8 @@
         if (!historyEl || !legalEl) return;
 
         try {
-            const data = await loadSiteData();
-            const about = data?.about_details;
+            const res = await fetch('/content/about.json');
+            const about = await res.json();
 
             if (about) {
                 historyEl.innerHTML = renderSimpleMarkdown(about.history);
@@ -281,12 +281,12 @@
     }
 
     window.NgajikeunApi = {
+        syncAbout,
         syncPrograms,
         syncMentors,
         syncTestimonials,
         syncArticles,
         syncProducts,
-        syncQuizzes,
-        syncAbout
+        syncQuizzes
     };
 }());
