@@ -51,7 +51,3 @@ python3 -m http.server 5500</code></pre>
         loadComponents
     };
 }());
-
-document.addEventListener("DOMContentLoaded", () => {
-    window.NgajikeunComponents.loadComponents();
-});
