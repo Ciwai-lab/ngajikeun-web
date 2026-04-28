@@ -258,27 +258,32 @@
     }
 
     async function syncAbout() {
-        const historyEl = document.getElementById('about-history');
-        const legalEl = document.getElementById('about-legal');
-        if (!historyEl || !legalEl) return;
+        const container = document.querySelector("#about-container");
+        if (!container) return;
+
+        container.innerHTML = "Memuat...";
 
         try {
-            const res = await fetch('/content/about.json');
-            const about = await res.json();
+            const res = await fetch("/content/about.json");
+            const data = await res.json();
 
-            if (about) {
-                historyEl.innerHTML = about.history
-                    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
-                    .replace(/\n/g, '<br>');
-                legalEl.innerText = about.legal || '—';
-            } else {
-                historyEl.innerHTML = '<p>Informasi sejarah belum tersedia.</p>';
-                legalEl.innerText = '—';
+            // DEBUG (penting bro)
+            console.log("ABOUT DATA:", data);
+
+            if (!data) {
+                container.innerHTML = "Data tidak ditemukan";
+                return;
             }
-        } catch (error) {
-            historyEl.innerHTML = '<p>Gagal memuat informasi sejarah.</p>';
-            legalEl.innerText = '—';
-            console.error('Gagal load detail Tentang Kami:', error);
+
+            container.innerHTML = `
+      <h2 class="text-xl font-bold mb-2">${data.title || "Tentang"}</h2>
+      <div class="prose">
+        ${data.content || ""}
+      </div>
+    `;
+        } catch (err) {
+            console.error("ERROR ABOUT:", err);
+            container.innerHTML = "Gagal memuat About";
         }
     }
 
