@@ -275,10 +275,10 @@
             }
 
             container.innerHTML = `
-  <h2 class="text-xl font-bold mb-2">Tentang</h2>
+  <h2 class="text-xl font-bold mb-4">Tentang</h2>
   <div class="leading-relaxed space-y-4">
-  ${renderSimpleMarkdown(data.history)}
-</div>
+    ${marked.parse(data.history)}
+  </div>
 `;
         } catch (err) {
             console.error("ERROR ABOUT:", err);
