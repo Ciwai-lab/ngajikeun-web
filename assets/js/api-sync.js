@@ -258,31 +258,22 @@
     }
 
     async function syncAbout() {
-        const container = document.querySelector("#about-container");
-        if (!container) return;
+        const historyEl = document.getElementById("about-history");
+        const legalEl = document.getElementById("about-legal");
 
-        container.innerHTML = "Memuat...";
+        if (!historyEl || !legalEl) return;
 
         try {
             const res = await fetch("/content/about.json");
             const data = await res.json();
 
-            console.log("ABOUT DATA:", data);
+            historyEl.innerHTML = marked.parse(data.history);
+            legalEl.innerText = data.legal || "—";
 
-            if (!data) {
-                container.innerHTML = "Data tidak ditemukan";
-                return;
-            }
-
-            container.innerHTML = `
-  <h2 class="text-xl font-bold mb-4">Tentang</h2>
-  <div class="leading-relaxed space-y-4">
-    ${marked.parse(data.history)}
-  </div>
-`;
         } catch (err) {
-            console.error("ERROR ABOUT:", err);
-            container.innerHTML = "Gagal memuat About";
+            console.error(err);
+            historyEl.innerHTML = "Gagal memuat sejarah";
+            legalEl.innerText = "—";
         }
     }
 
