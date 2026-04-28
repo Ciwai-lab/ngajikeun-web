@@ -267,7 +267,6 @@
             const res = await fetch("/content/about.json");
             const data = await res.json();
 
-            // DEBUG (penting bro)
             console.log("ABOUT DATA:", data);
 
             if (!data) {
@@ -276,11 +275,11 @@
             }
 
             container.innerHTML = `
-      <h2 class="text-xl font-bold mb-2">${data.title || "Tentang"}</h2>
-      <div class="prose">
-        ${data.content || ""}
-      </div>
-    `;
+  <h2 class="text-xl font-bold mb-2">Tentang</h2>
+  <div class="prose">
+    ${renderSimpleMarkdown(data.history)}
+  </div>
+`;
         } catch (err) {
             console.error("ERROR ABOUT:", err);
             container.innerHTML = "Gagal memuat About";
