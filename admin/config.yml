@@ -70,6 +70,8 @@ collections:
     label: "Produk & E-Book"
     folder: "content/products"
     create: true
+    extension: "json"
+    format: "json"
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text"}

@@ -19,7 +19,10 @@
         if (!value) return fallback;
 
         try {
-            const url = new URL(value, window.location.origin);
+            const urlText = String(value).trim();
+            const urlMatch = urlText.match(/https?:\/\/[^\s]+/i);
+            const rawUrl = urlMatch ? urlMatch[0] : urlText;
+            const url = new URL(rawUrl, window.location.origin);
             const allowedProtocols = ['http:', 'https:'];
 
             if (url.origin === window.location.origin) {
@@ -264,10 +267,13 @@
         if (!historyEl || !legalEl) return;
 
         try {
-            const res = await fetch("/content/about.json");
-            const data = await res.json();
+            const siteData = await loadSiteData();
+            const data = siteData?.about_details || {};
+            const history = data.history || '';
 
-            historyEl.innerHTML = marked.parse(data.history);
+            historyEl.innerHTML = window.marked
+                ? window.marked.parse(history)
+                : renderSimpleMarkdown(history);
             legalEl.innerText = data.legal || "—";
 
         } catch (err) {
