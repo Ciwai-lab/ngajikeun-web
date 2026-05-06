@@ -245,26 +245,43 @@
     }
 
     async function syncQuizzes() {
-        const container = document.getElementById('quizzes-list');
-        if (!container) return;
+        const tahfidzContainer = document.getElementById('quizzes-tahfidz');
+        const tajwidContainer = document.getElementById('quizzes-tajwid');
+
+        if (!tahfidzContainer || !tajwidContainer) return;
 
         try {
             const data = await loadSiteData();
             const quizzes = getCollection(data, 'quizzes');
             if (!quizzes.length) return;
 
-            container.innerHTML = '';
+            tahfidzContainer.innerHTML = '';
+            tajwidContainer.innerHTML = '';
 
-            for (const quiz of quizzes) {
+            quizzes.forEach(quiz => {
                 const quizLink = safeUrl(quiz.link);
+                const category = (quiz.category || '').toLowerCase();
 
-                container.innerHTML += `
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-amber-400">
-                        <h3 class="font-bold text-gray-800 mb-2">${safeText(quiz.title, 'Kuiz')}</h3>
-                        <p class="text-sm text-gray-500 mb-4">${safeText(quiz.description)}</p>
-                        <a href="${quizLink}" target="_blank" class="text-amber-600 text-xs font-black uppercase tracking-widest hover:text-amber-700">Mulai Kuiz ⚡</a>
-                    </div>`;
-            }
+                const cardHtml = `
+                <div class="group bg-white p-6 rounded-2xl border-l-4 ${category === 'tahfidz' ? 'border-emerald-400' : 'border-blue-400'} shadow-sm hover:shadow-md transition-all">
+                    <h3 class="font-bold text-slate-800 mb-1">${safeText(quiz.title, 'Kuiz')}</h3>
+                    <p class="text-xs text-slate-500 mb-4">${safeText(quiz.description)}</p>
+                    <a href="${quizLink}" target="_blank" class="inline-flex items-center gap-2 ${category === 'tahfidz' ? 'text-emerald-600' : 'text-blue-600'} text-[10px] font-black uppercase tracking-widest hover:gap-3 transition-all">
+                        Mulai Belajar ⚡
+                    </a>
+                </div>`;
+
+                // Masukkan ke kontainer yang sesuai
+                if (category === 'tahfidz') {
+                    tahfidzContainer.innerHTML += cardHtml;
+                } else if (category === 'tajwid') {
+                    tajwidContainer.innerHTML += cardHtml;
+                }
+            });
+
+            if (tahfidzContainer.innerHTML === '') tahfidzContainer.innerHTML = '<p class="text-xs text-slate-400 italic">Belum ada kuis tahfidz.</p>';
+            if (tajwidContainer.innerHTML === '') tajwidContainer.innerHTML = '<p class="text-xs text-slate-400 italic">Belum ada kuis tajwid.</p>';
+
         } catch (error) {
             console.error('Gagal load kuis:', error);
         }

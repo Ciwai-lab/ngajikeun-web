@@ -7,15 +7,20 @@ public_folder: "public/images/uploads"
 
 collections:
   - name: "quizzes"
-    label: "Kuiz Interaktif"
-    folder: "content/quizzes"
+    label: "Koleksi Kuis"
+    folder: "content/data/quizzes"
     create: true
-    extension: "json"
-    format: "json"
+    slug: "{{slug}}"
     fields:
-      - {label: "Judul Kuiz", name: "title", widget: "string"}
-      - {label: "Link Kuiz", name: "link", widget: "string"}
-      - {label: "Keterangan", name: "description", widget: "text"}
+      - {label: "Judul Kuis", name: "title", widget: "string"}
+      - {label: "Deskripsi Singkat", name: "description", widget: "text"}
+      - {label: "Link Quizlet", name: "link", widget: "string"}
+      - label: "Kategori"
+        name: "category"
+        widget: "select"
+        options:
+          - {label: "Tahfidz", value: "tahfidz"}
+          - {label: "Tajwid", value: "tajwid"}
 
   - name: "programs"
     label: "Program Belajar"
