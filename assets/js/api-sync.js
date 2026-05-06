@@ -206,6 +206,11 @@
         try {
             const data = await loadSiteData();
             const articles = getCollection(data, 'articles');
+
+            articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+            const now = new Date();
+            const publishedArticles = articles.filter(post => new Date(post.date) <= now);
+
             if (!articles.length) return;
 
             list.innerHTML = '';

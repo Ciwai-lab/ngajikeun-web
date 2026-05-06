@@ -22,7 +22,7 @@ collections:
     extension: "json"
     format: "json"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Judul Kuis", name: "title", widget: "string"}
       - {label: "Deskripsi Singkat", name: "description", widget: "text"}
@@ -40,7 +40,7 @@ collections:
     create: true
     extension: "json"
     format: "json"
-    slug: "{{title}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{title}}"
     fields:
       - {label: "Judul Program", name: "title", widget: "string"}
       - {label: "Deskripsi Singkat", name: "description", widget: "text"}
@@ -67,7 +67,7 @@ collections:
     create: true
     extension: "json"
     format: "json"
-    slug: "{{name}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{name}}"
     fields:
       - {label: "Nama Santri", name: "name", widget: "string"}
       - {label: "Pekerjaan/Status", name: "status", widget: "string"}
