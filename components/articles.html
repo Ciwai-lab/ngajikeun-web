@@ -1,8 +1,28 @@
-<section id="article-container" class="max-w-7xl mx-auto px-4 py-12 border-t border-emerald-50">
-    <h2 class="text-3xl font-bold text-center mb-10">Artikel Terbaru</h2>
-    <div id="articles-list" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="text-center col-span-full py-10 text-gray-400 italic">
-            Insya Allah, artikel bermanfaat segera hadir...
+<section id="article-section" class="py-24 bg-slate-50/50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div class="max-w-2xl">
+                <span class="text-emerald-600 text-[10px] font-black uppercase tracking-[0.3em] mb-3 block">Wawasan &
+                    Literasi</span>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-800 tracking-tighter">Artikel Terbaru</h2>
+                <p class="text-slate-500 mt-2 text-sm">Update informasi seputar dunia Al-Qur'an dan tips belajar
+                    makhraj.</p>
+            </div>
+            <a href="/articles"
+                class="text-xs font-bold text-emerald-600 hover:text-emerald-700 transition-colors border-b-2 border-emerald-100 pb-1">
+                Lihat Semua Artikel →</a>
+        </div>
+
+        <div id="articles-list" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Loading State -->
+            <div class="col-span-full text-center py-20 text-slate-400 italic">
+                <div class="flex justify-center mb-4">
+                    <div class="w-2 h-2 bg-emerald-500 rounded-full animate-bounce mx-1"></div>
+                    <div class="w-2 h-2 bg-emerald-500 rounded-full animate-bounce mx-1 [animation-delay:-0.15s]"></div>
+                    <div class="w-2 h-2 bg-emerald-500 rounded-full animate-bounce mx-1 [animation-delay:-0.3s]"></div>
+                </div>
+                <p class="text-xs tracking-widest uppercase font-medium">Menarik data literasi...</p>
+            </div>
         </div>
     </div>
 </section>
