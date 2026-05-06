@@ -398,11 +398,13 @@
                     : renderSimpleMarkdown(article.body);
 
                 contentArea.innerHTML = `
-                <h2 class="text-3xl font-black text-slate-800 mb-6 leading-tight">${safeText(article.title)}</h2>
                 <div class="prose prose-slate prose-emerald max-w-none">
-                    ${htmlContent}
-                </div>
-            `;
+        <h2 class="text-3xl font-black text-slate-800 mb-6">${safeText(article.title)}</h2>
+        <div class="article-body">
+            ${window.marked ? window.marked.parse(article.body) : renderSimpleMarkdown(article.body)}
+        </div>
+    </div>
+`;
             }
         } catch (err) {
             contentArea.innerHTML = '<p class="text-red-500">Aduh, gagal muat artikelnya, bro.</p>';

@@ -3,37 +3,46 @@
 
 <head>
     <meta charset="UTF-8">
+
+    <title>Ngajikeun.id - Bimbingan Al-Qur'an Bersanad</title>
+    <meta name="title" content="Ngajikeun.id - Bimbingan Al-Qur'an Bersanad">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Bimbingan Khusus Praktik Membaca Al-Qur'an Privat Sesuai Makhraj & Tajwid Bersanad.">
+
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ngajikeun.ciwai.dev/">
     <meta property="og:title" content="Ngajikeun.id - Bimbingan Al-Qur'an Bersanad">
     <meta property="og:description" content="Belajar Al-Qur'an privat, jadwal fleksibel, dibimbing pengajar bersanad.">
-    <meta property="og:image" content="https://ngajikeun.ciwai.dev/public/img/og-image.jpg">
+    <meta property="og:image" content="https://ngajikeun.ciwai.dev/images/logo/og-ngk.png">
 
-    <title>Ngajikeun.id - Bimbingan Al-Qur'an Bersanad</title>
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ngajikeun.ciwai.dev/">
+    <meta property="twitter:title" content="Ngajikeun.id - Bimbingan Al-Qur'an Bersanad">
+    <meta property="twitter:description"
+        content="Belajar Al-Qur'an privat, jadwal fleksibel, dibimbing pengajar bersanad.">
+    <meta property="twitter:image" content="https://ngajikeun.ciwai.dev/public/images/uploads/logo-ngk.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+    <link rel="icon" type="image/png" href="/images/logo/logo_ngk.ico">
+    <link rel="apple-touch-icon" href="/images/logo/logo_ngk.ico">
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
     <style>
-        /* Dasar & Perilaku Scroll */
         html {
             scroll-behavior: smooth;
         }
 
-        /* Efek Hover Gambar Umum */
         .group:hover img {
             transform: scale(1.05);
         }
 
-        /* Animasi Entry untuk Container Data */
         #program-container>div,
         #mentor-container>div,
         #testimonial-container>div {
@@ -52,7 +61,6 @@
             }
         }
 
-        /* Utilitas Reveal on Scroll */
         .reveal {
             opacity: 0;
             transform: translateY(20px);
@@ -64,7 +72,6 @@
             transform: translateY(0);
         }
 
-        /* --- CUSTOM SCROLLBAR (Minimalis & Ringan) --- */
         .custom-scroll {
             scrollbar-width: thin;
             scrollbar-color: rgba(16, 185, 129, 0.3) transparent;
@@ -80,7 +87,6 @@
 
         .custom-scroll::-webkit-scrollbar-thumb {
             background: rgba(16, 185, 129, 0.3);
-            /* Emerald halus */
             border-radius: 10px;
         }
 
@@ -88,7 +94,6 @@
             background: rgba(16, 185, 129, 0.6);
         }
 
-        /* --- ABOUT SECTION STYLING (Markdown & Grid) --- */
         .about-story p {
             color: #475569;
             font-size: 0.94rem;
@@ -106,14 +111,30 @@
             margin-bottom: 0;
         }
 
-        /* Kursor khusus untuk Fancybox */
         .cursor-zoom-in {
             cursor: zoom-in;
         }
 
-        /* Fix Layout Grid agar tidak ada sisa flex lama */
         #about-slides {
             display: grid !important;
+        }
+
+        .prose p {
+            margin-bottom: 1.5em;
+            line-height: 1.75;
+        }
+
+        .prose h1,
+        .prose h2 {
+            font-weight: 800;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+
+        .prose ul {
+            list-style-type: disc;
+            padding-left: 1.5em;
+            margin-bottom: 1.5em;
         }
     </style>
 
