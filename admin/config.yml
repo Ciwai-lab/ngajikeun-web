@@ -75,15 +75,17 @@ collections:
       - {label: "Foto (Optional)", name: "image", widget: "image", required: false}
 
   - name: "articles"
-    label: "Artikel"
+    label: "Artikel & Literasi"
     folder: "content/articles"
     create: true
     extension: "json"
     format: "json"
+    slug: "{{slug}}"
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Judul Artikel", name: "title", widget: "string"}
+      - {label: "Tanggal Publish", name: "date", widget: "datetime"}
+      - {label: "Isi Artikel", name: "body", widget: "markdown"}
+      - {label: "Ringkasan (Snippet)", name: "description", widget: "text", required: false}
 
   - name: "products"
     label: "Produk & E-Book"

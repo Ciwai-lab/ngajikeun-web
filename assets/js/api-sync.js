@@ -210,7 +210,7 @@
 
             list.innerHTML = '';
 
-            articles.slice(0, 3).forEach(post => { // Kita ambil 3 artikel terbaru saja
+            articles.slice(0, 3).forEach(post => {
                 const date = new Date(post.date).toLocaleDateString('id-ID', {
                     year: 'numeric',
                     month: 'long',
