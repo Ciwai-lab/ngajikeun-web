@@ -375,6 +375,9 @@
         }
 
         const contentArea = modal.querySelector('#modal-content');
+
+        contentArea.scrollTop = 0;
+
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
         contentArea.innerHTML = '<p class="text-center italic py-10">Membuka catatan hikmah...</p>';

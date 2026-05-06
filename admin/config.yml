@@ -78,9 +78,14 @@ collections:
     label: "Artikel & Literasi"
     folder: "content/articles"
     create: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Judul Artikel", name: "title", widget: "string"}
       - {label: "Tanggal Publish", name: "date", widget: "datetime"}
+      - {label: "Thumbnail Artikel", name: "thumbnail", widget: "image", required: false} # Ini buat masukin image, bro!
+      - {label: "Deskripsi Singkat", name: "description", widget: "text", hint: "Muncul di halaman depan (limit 100 karakter)"}
       - {label: "Body", name: "body", widget: "markdown"}
 
   - name: "products"
