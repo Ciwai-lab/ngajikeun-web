@@ -225,7 +225,6 @@
                 list.innerHTML += `
                 <article class="group bg-white rounded-[2.5rem] p-2 border border-slate-100 hover:border-emerald-200 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-900/5">
                     <div class="bg-slate-100 aspect-video rounded-[2rem] mb-6 overflow-hidden relative">
-                        <!-- Kalau ada thumbnail bisa ditaruh sini, kalau gak ada kita kasih placeholder estetik -->
                         <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-blue-500/20 group-hover:scale-110 transition-transform duration-700"></div>
                         <div class="absolute inset-0 flex items-center justify-center">
                              <svg class="w-12 h-12 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
