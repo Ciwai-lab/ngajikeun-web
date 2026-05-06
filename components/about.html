@@ -21,16 +21,26 @@
             </div>
 
             <!-- KANAN: VISI MISI -->
-            <div class="bg-white p-8 md:p-10 rounded-[2rem] border border-emerald-50 shadow-xl shadow-emerald-900/5">
-                <h3 class="text-2xl font-bold text-emerald-900 mb-6 border-b border-emerald-50 pb-4">Visi & Misi</h3>
-                <div class="space-y-6">
+            <div
+                class="bg-white p-8 md:p-10 rounded-[2rem] border border-emerald-50 shadow-xl shadow-emerald-900/5 lg:sticky lg:top-28">
+                <h3 class="text-2xl font-bold text-emerald-900 mb-6 border-b border-emerald-50 pb-4">
+                    Visi & Misi
+                </h3>
+
+                <!-- Bagian yang bisa di-scroll -->
+                <div class="max-h-[450px] overflow-y-auto pr-4 custom-scroll space-y-6">
+                    <!-- VISI -->
                     <div>
-                        <p class="text-xs md:text-sm font-semibold text-emerald-700 mb-1">Visi</p>
-                        <p id="about-vision" class="text-xs md:text-sm italic text-slate-500"></p>
+                        <p class="text-xs md:text-sm font-semibold text-emerald-700 mb-2">Visi</p>
+                        <p id="about-vision" class="text-xs md:text-sm italic text-slate-500 leading-relaxed"></p>
                     </div>
+
+                    <!-- MISI -->
                     <div class="space-y-3">
                         <p class="text-xs md:text-sm font-semibold text-emerald-700">Misi</p>
-                        <div id="about-missions" class="space-y-3"></div>
+                        <div id="about-missions" class="space-y-4">
+                            <!-- Poin misi akan muncul di sini via api-sync.js -->
+                        </div>
                     </div>
                 </div>
             </div>
