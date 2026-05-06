@@ -19,8 +19,8 @@ collections:
         name: "category"
         widget: "select"
         options:
-          - {label: "Tahfidz", value: "tahfidz"}
-          - {label: "Tajwid", value: "tajwid"}
+          - { label: "Tahfidz", value: "tahfidz" }
+          - { label: "Tajwid", value: "tajwid" }
 
   - name: "programs"
     label: "Program Belajar"
