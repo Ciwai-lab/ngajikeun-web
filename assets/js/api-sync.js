@@ -256,7 +256,9 @@
                         : `<div class="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-blue-500/20 group-hover:scale-110 transition-transform duration-700"></div>`
                     }
         </div>
-        <div class="px-6 pb-8 flex-grow flex flex-col items-center text-center"> <time class="text-[10px] font-bold text-emerald-600 uppercase tracking-widest block mb-3">${date}</time>
+        
+        <div class="px-6 pb-8 flex-grow flex flex-col items-center text-center"> 
+            <time class="text-[10px] font-bold text-emerald-600 uppercase tracking-widest block mb-3">${date}</time>
             <h3 class="text-xl font-black text-slate-800 leading-snug group-hover:text-emerald-600 transition-colors mb-4">
                 ${safeText(post.title)}
             </h3>
