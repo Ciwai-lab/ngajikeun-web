@@ -240,7 +240,7 @@
         const content = document.getElementById('modal-content');
 
         if (!modal || !content) {
-            console.error("Modal tidak tersedia");
+            console.error("Modal atau Container konten tidak ditemukan");
             return;
         }
 
@@ -393,41 +393,6 @@
                 }
             }
         } catch (err) { console.error('Gagal sync about:', err); }
-    }
-
-    async function openArticlePopup(slug) {
-        const modal = document.getElementById('article-modal');
-        const modalBody = document.getElementById('modal-body');
-        const modalTitle = document.getElementById('modal-title');
-
-        if (!modal || !modalBody) return;
-
-        modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-        modal.scrollTop = 0;
-
-        modalBody.innerHTML = '<p class="text-center italic py-10">Membuka catatan hikmah...</p>';
-
-        try {
-            const data = await loadSiteData();
-            const articles = getCollection(data, 'articles');
-            const article = articles.find(a => a.slug === slug);
-
-            if (article) {
-                if (modalTitle) modalTitle.innerText = article.title;
-
-                modalBody.innerHTML = window.marked
-                    ? window.marked.parse(article.body)
-                    : renderSimpleMarkdown(article.body);
-
-                modal.scrollTo({ top: 0, behavior: 'instant' });
-            } else {
-                modalBody.innerHTML = '<p class="text-center text-red-500">Artikel tidak ditemukan, bro.</p>';
-            }
-        } catch (err) {
-            console.error('Error modal:', err);
-            modalBody.innerHTML = '<p class="text-center text-red-500">Gagal memuat isi artikel.</p>';
-        }
     }
 
     window.NgajikeunApi = {
