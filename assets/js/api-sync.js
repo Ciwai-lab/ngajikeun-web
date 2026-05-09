@@ -411,9 +411,12 @@
                         <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest block mb-1">Investasi</span>
                         <span class="text-xl font-black text-emerald-600">${safeText(product.price, 'Gratis')}</span>
                     </div>
-                    <button class="w-full bg-white group-hover:bg-emerald-600 text-emerald-700 group-hover:text-white text-[11px] px-6 py-3 rounded-2xl font-black uppercase tracking-widest shadow-sm group-hover:shadow-emerald-500/40 transition-all duration-500 border border-emerald-100 group-hover:border-emerald-600">
-                        Beli Sekarang
-                    </button>
+                    <div class="group bg-emerald-50/50 hover:bg-white p-8 rounded-[2.5rem] border border-emerald-100 text-center transition-all duration-500">
+        <a href="${safeText(product.link, 'https://wa.me/6281932692047')}" target="_blank"
+            class="block w-full bg-white group-hover:bg-emerald-600 text-emerald-700 group-hover:text-white text-[11px] px-6 py-3 rounded-2xl font-black uppercase tracking-widest shadow-sm transition-all duration-500 border border-emerald-100 group-hover:border-emerald-600 text-center">
+            Beli Sekarang
+        </a>
+    </div>
                 </div>`;
             }
         } catch (error) {
