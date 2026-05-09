@@ -403,12 +403,18 @@
 
             for (const product of products) {
                 container.innerHTML += `
-                    <div class="bg-emerald-50 p-6 rounded-2xl border border-emerald-100 text-center">
-                        <h3 class="font-bold text-emerald-900">${safeText(product.title, 'Produk')}</h3>
-                        <p class="text-sm text-emerald-700/70 my-3">${safeText(product.description)}</p>
-                        <span class="block font-black text-emerald-600 mb-4">${safeText(product.price, 'Gratis')}</span>
-                        <button class="bg-white text-emerald-700 text-xs px-4 py-2 rounded-full font-bold shadow-sm">Beli Sekarang</button>
-                    </div>`;
+                <div class="group bg-emerald-50/50 hover:bg-white p-8 rounded-[2.5rem] border border-emerald-100 hover:border-emerald-500/30 text-center transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-emerald-900/10">
+                    <h3 class="font-black text-lg text-emerald-900 tracking-tight">${safeText(product.title, 'Produk')}</h3>
+                    <div class="h-px w-8 bg-emerald-200 mx-auto my-4 group-hover:w-16 transition-all duration-500"></div>
+                    <p class="text-[13px] leading-relaxed text-emerald-800/60 mb-6 min-h-[80px]">${safeText(product.description)}</p>
+                    <div class="mb-6">
+                        <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest block mb-1">Investasi</span>
+                        <span class="text-xl font-black text-emerald-600">${safeText(product.price, 'Gratis')}</span>
+                    </div>
+                    <button class="w-full bg-white group-hover:bg-emerald-600 text-emerald-700 group-hover:text-white text-[11px] px-6 py-3 rounded-2xl font-black uppercase tracking-widest shadow-sm group-hover:shadow-emerald-500/40 transition-all duration-500 border border-emerald-100 group-hover:border-emerald-600">
+                        Beli Sekarang
+                    </button>
+                </div>`;
             }
         } catch (error) {
             console.error('Gagal load produk:', error);
