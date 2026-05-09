@@ -35,21 +35,36 @@
                 render: function () {
                     const entry = this.props.entry;
                     const welcomeMsg = entry.getIn(['data', 'welcome_msg']) || 'Selamat Datang Admin';
-                    const statsLink = entry.getIn(['data', 'stats_link']) || 'https://cloud.umami.is/share/wwTd9VfrO2Xe8A77';
+                    const rawLink = entry.getIn(['data', 'stats_link']) || '';
+                    const cleanLink = rawLink.replace('/analytics/us', '');
 
-                    return h('div', { style: { padding: '20px', background: '#f8fafc', minHeight: '100vh', fontFamily: 'sans-serif' } },
-                        h('div', { style: { background: '#059669', padding: '30px', borderRadius: '24px', color: 'white', marginBottom: '24px', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' } },
-                            h('h1', { style: { margin: '0', fontSize: '24px', fontWeight: '900' } }, welcomeMsg),
-                            h('p', { style: { opacity: '0.9', fontSize: '14px', marginTop: '5px' } }, 'CiwAI™ Smart Digital Dashboard')
+                    return h('div', { style: { padding: '20px', background: '#f1f5f9', minHeight: '100vh', fontFamily: 'sans-serif' } },
+                        h('div', { style: { background: '#059669', padding: '30px', borderRadius: '24px', color: 'white', marginBottom: '20px', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)' } },
+                            h('h1', { style: { margin: '0', fontSize: '26px', fontWeight: '900' } }, welcomeMsg),
+                            h('p', { style: { opacity: '0.8', fontSize: '14px' } }, 'CiwAI™ Realtime Monitor Dashboard Statistik')
                         ),
-                        h('div', { style: { background: 'white', padding: '15px', borderRadius: '24px', border: '1px solid #e2e8f0', minHeight: '650px' } },
+
+                        // Frame Container
+                        h('div', { style: { position: 'relative', background: 'white', padding: '10px', borderRadius: '24px', border: '1px solid #e2e8f0', minHeight: '600px', overflow: 'hidden' } },
+                            h('a', {
+                                href: cleanLink,
+                                target: '_blank',
+                                style: {
+                                    position: 'absolute', top: '20px', right: '20px', zIndex: '10',
+                                    background: '#0f172a', color: 'white', padding: '10px 20px',
+                                    borderRadius: '12px', textDecoration: 'none', fontSize: '12px', fontWeight: 'bold'
+                                }
+                            }, 'Buka Full Screen ↗'),
+
                             h('iframe', {
-                                src: statsLink.replace('/analytics/us', ''),
-                                style: { width: '100%', height: '650px', border: 'none', borderRadius: '15px' },
-                                title: 'CiwAI Analytics Live',
+                                src: cleanLink,
+                                style: { width: '100%', height: '600px', border: 'none', borderRadius: '15px' },
                                 sandbox: 'allow-scripts allow-same-origin allow-forms allow-popups'
                             })
-                        )
+                        ),
+
+                        h('p', { style: { textAlign: 'center', color: '#94a3b8', fontSize: '11px', marginTop: '15px' } },
+                            'Note: Jika dashboard kosong, klik tombol Buka Full Screen. Umami Cloud membatasi akses iframe di beberapa browser.')
                     );
                 }
             }));
