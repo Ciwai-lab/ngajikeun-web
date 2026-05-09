@@ -403,21 +403,33 @@
 
             for (const product of products) {
                 container.innerHTML += `
-                <div class="group bg-emerald-50/50 hover:bg-white p-8 rounded-[2.5rem] border border-emerald-100 hover:border-emerald-500/30 text-center transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-emerald-900/10">
-                    <h3 class="font-black text-lg text-emerald-900 tracking-tight">${safeText(product.title, 'Produk')}</h3>
-                    <div class="h-px w-8 bg-emerald-200 mx-auto my-4 group-hover:w-16 transition-all duration-500"></div>
-                    <p class="text-[13px] leading-relaxed text-emerald-800/60 mb-6 min-h-[80px]">${safeText(product.description)}</p>
-                    <div class="mb-6">
-                        <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest block mb-1">Investasi</span>
-                        <span class="text-xl font-black text-emerald-600">${safeText(product.price, 'Gratis')}</span>
+        <div class="group relative bg-white p-2 rounded-[2rem] border border-emerald-50 shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-900/5">
+            <div class="absolute top-4 right-4 z-10">
+                <span class="bg-emerald-500 text-white text-[8px] font-black px-2 py-1 rounded-lg uppercase tracking-tighter">New Release</span>
+            </div>
+
+            <div class="bg-emerald-50/50 rounded-[1.8rem] p-8 transition-colors duration-500 group-hover:bg-emerald-50/80">
+                <div class="w-16 h-16 bg-white rounded-2xl mb-6 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-500">
+                    <span class="text-2xl">📚</span>
+                </div>
+
+                <h3 class="text-lg font-black text-emerald-900 leading-tight mb-2">${safeText(product.title, 'Produk')}</h3>
+                <p class="text-xs text-emerald-800/50 leading-relaxed mb-6 line-clamp-2">${safeText(product.description)}</p>
+                
+                <div class="flex items-center justify-between pt-4 border-t border-emerald-100/50">
+                    <div>
+                        <p class="text-[9px] uppercase font-bold text-emerald-400 tracking-widest">Harga</p>
+                        <p class="text-lg font-black text-emerald-700">${safeText(product.price, 'Gratis')}</p>
                     </div>
-                    <div class="group bg-emerald-50/50 hover:bg-white p-8 rounded-[2.5rem] border border-emerald-100 text-center transition-all duration-500">
-        <a href="${safeText(product.link, 'https://wa.me/6281932692047')}" target="_blank"
-            class="block w-full bg-white group-hover:bg-emerald-600 text-emerald-700 group-hover:text-white text-[11px] px-6 py-3 rounded-2xl font-black uppercase tracking-widest shadow-sm transition-all duration-500 border border-emerald-100 group-hover:border-emerald-600 text-center">
-            Beli Sekarang
-        </a>
-    </div>
-                </div>`;
+                    <a href="${safeText(product.link, 'https://wa.me/6281932692047')}" target="_blank"
+                       class="bg-emerald-600 p-3 rounded-xl text-white shadow-lg shadow-emerald-500/20 hover:bg-emerald-700 transition-all active:scale-95">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>`;
             }
         } catch (error) {
             console.error('Gagal load produk:', error);
