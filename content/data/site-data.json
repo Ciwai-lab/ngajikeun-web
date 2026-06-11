@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-11T09:35:53.832Z",
+  "generated_at": "2026-06-11T09:37:02.652Z",
   "about_details": {
     "history": "NGAJIKEUN.ID lahir dari sebuah keresahan sekaligus kepedulian terhadap kebutuhan muslimah dewasa di era modern. Dalam keseharian yang sibuk, dari mengurus keluarga, kuliah hingga berkarir, banyak muslimah merasa kesulitan meluangkan waktu untuk memperbaiki hubungan mereka dengan Al-Qur'an. Padahal, Al-Qur'an bukan hanya kitab suci, melainkan pedoman hidup yang membawa ketenangan, kekuatan, dan inspirasi di setiap aspek kehidupan. \n\nTerinspirasi dari istilah “ngajikeun” yang berasal dari tradisi lokal Sunda — sebuah khataman Al-Qur'an untuk menghibur keluarga yang berduka — NGAJIKEUN.ID membawa misi yang lebih luas dan universal. Kami hadir untuk mengajak muslimah agar intens membangun hubungan  bersama al-Qur'an setiap hari sebelum lima (5) perkara melanda. Lima (5) perkara yang dimaksud yakni: sehat sebelum sakit, muda sebelum tua, kaya sebelum miskin, lapang sebelum sempit, dan hidup sebelum mati. \n\nDengan platform belajar Al-Qur'an berbasis online, NGAJIKEUN.ID ingin menjadi partner bagi muslimah di seluruh dunia yang ingin memperbaiki bacaan, mendalami tajwid, menjaga hafalan dan merasakan keindahan berinteraksi dengan kalam Ilahi setiap hari. Dengan ciri khasnya yang memusatkan sebagian besar kegiatannya sebelum memulai aktivitas di pagi hari, NGAJIKEUN.ID tidak hanya ingin menjadi teman belajar, namun juga jembatan bagi seluruh muslimah yang mendambakan keberkahan hidup sepanjang hari. \"Ya Allah, berilah keberkahan bagi umatku di pagi harinya.\" (HR. Abu Dawud).",
     "legal": ".",
@@ -48,6 +48,13 @@
       "title": "Tahfizh Ekslusif Khusus Musyrifah",
       "description": "Program ini diperuntukkan untuk menfasilitasi para musyrifah NGAJIKEUN.ID yang ingin hafalannya disimak dan diuji sesuai standard sanad secara peer to peer. Bergabung di program ini, artinya siap mengemban tanggung jawab yang diamanahkan kepada setiap musyrifah NGAJIKEUN.ID secara penuh.",
       "image": "public/images/uploads/logo-ngk.png"
+    },
+    {
+      "slug": "tahfizh-online-mutqin-pro",
+      "title": "Tahfizh Online Mutqin -Pro",
+      "description": "Kelas Pro hadir sebagai ruang eksklusif bagi muslimah yang membutuhkan waktu setoran lebih fleksibel dan kuota simakan tanpa antre. Sebagai solusi atas tantangan menghafal mandiri, program ini menawarkan pendampingan musyrifah pribadi, ujian berkala berstandar sanad, serta waktu belajar yang adaptif dengan kesibukan Anda. Ini adalah langkah premium untuk menjaga kualitas bimbingan demi meraih hafalan yang kuat secara konsisten.",
+      "price": "Rp. 50.000",
+      "image": "public/images/uploads/2.png"
     },
     {
       "slug": "tahsin-bersanad-jazariyyah",
