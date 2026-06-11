@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-11T09:38:05.142Z",
+  "generated_at": "2026-06-11T09:39:42.960Z",
   "about_details": {
     "history": "NGAJIKEUN.ID lahir dari sebuah keresahan sekaligus kepedulian terhadap kebutuhan muslimah dewasa di era modern. Dalam keseharian yang sibuk, dari mengurus keluarga, kuliah hingga berkarir, banyak muslimah merasa kesulitan meluangkan waktu untuk memperbaiki hubungan mereka dengan Al-Qur'an. Padahal, Al-Qur'an bukan hanya kitab suci, melainkan pedoman hidup yang membawa ketenangan, kekuatan, dan inspirasi di setiap aspek kehidupan. \n\nTerinspirasi dari istilah “ngajikeun” yang berasal dari tradisi lokal Sunda — sebuah khataman Al-Qur'an untuk menghibur keluarga yang berduka — NGAJIKEUN.ID membawa misi yang lebih luas dan universal. Kami hadir untuk mengajak muslimah agar intens membangun hubungan  bersama al-Qur'an setiap hari sebelum lima (5) perkara melanda. Lima (5) perkara yang dimaksud yakni: sehat sebelum sakit, muda sebelum tua, kaya sebelum miskin, lapang sebelum sempit, dan hidup sebelum mati. \n\nDengan platform belajar Al-Qur'an berbasis online, NGAJIKEUN.ID ingin menjadi partner bagi muslimah di seluruh dunia yang ingin memperbaiki bacaan, mendalami tajwid, menjaga hafalan dan merasakan keindahan berinteraksi dengan kalam Ilahi setiap hari. Dengan ciri khasnya yang memusatkan sebagian besar kegiatannya sebelum memulai aktivitas di pagi hari, NGAJIKEUN.ID tidak hanya ingin menjadi teman belajar, namun juga jembatan bagi seluruh muslimah yang mendambakan keberkahan hidup sepanjang hari. \"Ya Allah, berilah keberkahan bagi umatku di pagi harinya.\" (HR. Abu Dawud).",
     "legal": ".",
@@ -30,10 +30,10 @@
   "programs": [
     {
       "slug": "intensive-talaqqi-al-quran",
-      "price": "Rp. 30.000/sesi",
-      "title": "Intensive Talaqqi Al-Qur'an",
-      "description": "Adalah program bimbingan privat khusus untuk muslimah dewasa yang ingin memperbaiki kualitas bacaan Al-Qur’an secara personal, terarah, dan fleksibel, dengan bimbingan tenaga pengajar muslimah bersanad/bersertifikat dan berpengalaman. \n\nPeserta akan akan diarahkan untuk melafalkan setiap huruf al-Qur'an sesuai kaidahnya. Setiap sesi dilengkapi dengan evaluasi dan koreksi langsung yang disesuaikan dengan level kemampuan peserta. Dengan pendampingan yang hangat dan motivasi berkelanjutan, program ini dirancang agar tetap nyaman dijalani para muslimah di tengah kesibukan harian.\n\n",
-      "image": "public/images/uploads/logo-ngk.png"
+      "price": "Rp. 0",
+      "title": "Qur'an Learning Program (QLP)",
+      "description": "Qur’an Learning Program (QLP) dari NGAJIKEUN.ID adalah wadah bagi muslimah yang ingin memperbaiki bacaan Al-Qur'an secara terstruktur di sela kesibukan kerja, kuliah, atau rumah tangga. Melalui program unggulan Kelas Talaqqi 30 Juz (Gratis), kelas ini menawarkan bimbingan real-time berstandar Timur Tengah langsung dari rumah, di dalam ekosistem sesama muslimah yang suportif, disiplin, dan terukur. Didampingi oleh pengajar yang kredibel, program ini menjadi ruang nyaman untuk menjaga keabsahan bacaan Anda hingga khatam 30 juz secara online.",
+      "image": "public/images/uploads/3.png"
     },
     {
       "slug": "sharing-session-live-quiz",
